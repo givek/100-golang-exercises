@@ -38,19 +38,21 @@ func main() {
 // if input == 0 returns 1 as per definition
 // if input < 0 returns 0 and an error
 func Ex002(input int) (uint64, error) {
-	// uint64 because it can get big
-	var factorial uint64 = 1
 
 	if input < 0 {
-		return 0, fmt.Errorf("factorial for negativ values is not allowed")
+		return 0, fmt.Errorf("Cannot find factorial of a negative number %v", input)
 	}
 
 	if input == 0 {
 		return 1, nil
 	}
 
-	for i := 1; i <= input; i++ {
-		factorial *= uint64(i)
+	res, err := Ex002(input - 1)
+
+	if err != nil {
+		return res, err
 	}
-	return factorial, nil
+
+	return uint64(input) * res, nil
+
 }
