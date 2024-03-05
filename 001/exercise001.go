@@ -23,11 +23,19 @@ func main() {
 
 // Ex001 returns a slice of numbers
 func Ex001(low, high int) string {
-	var numbers []string
+
+	numsDivisibleBy7ButNot5 := []string{}
+
 	for i := low; i <= high; i++ {
+
 		if i%7 == 0 && i%5 != 0 {
-			numbers = append(numbers, strconv.Itoa(i))
+
+			numsDivisibleBy7ButNot5 = append(numsDivisibleBy7ButNot5, strconv.Itoa(i))
+
 		}
+
 	}
-	return strings.Join(numbers, ",")
+
+	return strings.Join(numsDivisibleBy7ButNot5, ",")
+
 }
