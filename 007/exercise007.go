@@ -5,17 +5,22 @@ package main
 // [[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8]]
 func Ex007(x, y int) [][]int {
 
-	slice := [][]int{}
+	res := [][]int{}
 
 	for i := 0; i < x; i++ {
 
-		row := []int{}
+		resI := []int{}
+
 		for j := 0; j < y; j++ {
-			p := i * j
-			row = append(row, p)
+
+			resI = append(resI, i*j)
+
 		}
-		slice = append(slice, row)
+
+		res = append(res, resI)
+
 	}
 
-	return slice
+	return res
+
 }
